@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    ViewData["Title"] = "details";
+}
+
+@model List<Customer.Models.Car>
+
+
+<section class="conten-product">
+    <div class="container mb-5 py-5">
+        <div class="row align-items-center">
+            @foreach(var item in Model){
+            <div class="col-lg-4 px-0">
+                <div class="d-flex flex-column mb-5">
+                    <h2 class="m-0 text-primary">Product details</h2>
+                    <div class="bg-primary w-75 rounded mt-1" style="height: 0.5rem;"></div>
+                </div>
+                
+                    <div class="card p-3">
+                    <img width="100%" class="img-fluid" src="~/image/@item.Imageurl" alt="Image">
+                    </div>                
+            </div>
+            <div class="col-lg-8 py-5 py-lg-0 px-3 px-lg-5">
+                <h5 class="text-primary mb-3">Giá tiền</h5>
+                <p><i class="fas fa-caret-right text-primary mx-2"></i>@item.Price $</p>
+                <h5 class="text-primary mb-3">Giới thiệu sản phẩm</h5>
+                <p>@item.CarName</p>
+                <button>Mua hàng</button>
+              
+            </div>
+             }
+        </div>
+    </div>
+</section>
+

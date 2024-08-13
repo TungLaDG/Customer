@@ -1,0 +1,128 @@
+﻿<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VietOto</title>
+    <link rel="stylesheet" href="~/css/vietoto.css" type="text/css">
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css">
+</head>
+<body>
+    
+    <div id="wrap">
+        <div class="logo">
+            <a href="" class="bt-logo">
+                <img src="~/image/v-logo.jpg" alt="" style="width: 100px;height: 68px;display: block;">
+            </a>
+        </div>
+        <div class="menu">  
+            <ul class="">
+                <div class="mn-category">
+                <li>
+                    <a href="/customer">Trang chủ</a>
+                </li>
+             
+                <li>
+                    <a href="#">Sedan</a>
+                </li>
+                <li>
+                    <a href="#">SUV</a>
+                </li>
+                <li>
+                    <a href="#">Sports-Car</a>
+                </li>
+                <li>
+                    <a href="#">Pick-up</a>
+                </li>
+
+                <li>
+                    <a href="/contact">Liên hệ...</a>
+                </li>
+            </ul>
+        </div>
+        <div class="searching">
+            <input type="search" name="search" style="height: 30px" placeholder="Search..">
+            <button type="btn-search" style="height: 28px;"><img src="image/search.png" alt=""></button>
+
+        </div>
+    </div>
+    <div id="content">
+        @RenderSection("Slide", required:false)
+        @RenderBody()
+        
+    </div>
+
+    <div id="footer">
+            <h5 class="footer-heading">Get more out of VietOto</h5>
+        <div class="col-footer">
+            <div class="f-col">
+                <div class="f-col-heading">
+                    <h3 style="color: rgb(23, 245, 108);">About</h3>
+                </div>
+                <div class="f-col-content">
+                    <p>
+                        <b>Viet Oto</b>
+                    </p>
+                    <p>
+                        <b>Address: 4xx - GV - HCM - Vietnam</b>
+                    </p>
+                </div>
+            </div>
+            <div class="s-col">
+                <div class="s-col-heading">
+                    <h3 style="color: rgb(23, 245, 108);">Tutorial</h3>
+                </div>
+                <div class="s-col-content">
+                    <p>
+                        <b>Oder: 0867560xxx</b>
+                    </p>
+                    <p>
+                        <b>Work-time - Monday to Sunday: 8:00 am - 7:00 pm</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="bott-footer">
+            <div class="fb-linking">
+                <a href="https://www.facebook.com/tung.rotk/"><img src="/image/logo-fb.webp" alt="fb-icon" style="width: 30px;height: 30px;">
+                </a>
+                <h6 style="display: inline;color: white;"> /tung.rotk</h6>
+            </div>
+            <div class="zalo">
+                <img src="/image/zalo-logo.png" alt="" style="width: 40px;height: 40px;margin-bottom: 10px;">
+                <h6 style="display: inline; color: white;">: 0867560xxx</h6>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const imgPosition = document.querySelectorAll(".aspect-ratio img")
+    const imgContainer = document.querySelector(".aspect-ratio")
+    const dotItem = document.querySelectorAll(".dot")
+    let index = 0
+    let imgNumber  = imgPosition.length
+
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem[index].addEventListener("click",function(){
+            slider(index)
+        })
+    })
+
+    function imgSlide(){
+        index++;
+        if(index>= imgNumber){index=0}
+        slider(index)
+    }
+
+    function slider(index){
+        imgContainer.style.left = "-"+index*100+"%"
+        const dotActive = document.querySelector('.active')
+        dotActive.classList.remove("active")
+        dotItem[index].classList.add("active")
+    }
+
+    setInterval(imgSlide,5000);
+</script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+</html>

@@ -1,0 +1,41 @@
+﻿@model List<Customer.Models.Cate>
+
+
+<div id="wrap">
+        <div class="logo">
+            <a href="" class="bt-logo">
+                <img src="image/v-logo.jpg" alt="" style="width: 100px;height: 68px;display: block;">
+            </a>
+        </div>
+        <div class="menu">  
+            <ul class="">
+                <div class="mn-category">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                @foreach(var item in Model)
+                {
+                    <li>
+                        <a href="/customer/details/@item.Id">@item.Name</a>
+                    </li>
+                    
+                }
+
+
+                <li>
+                    <a href="#">SUV</a>
+                </li>
+                <li>
+                    <a href="#">Sports-Car</a>
+                </li>
+                <li>
+                    <a href="#">Pick-up</a>
+                </li>
+                <li>
+                    <a href="#">Hatchback</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us...</a>
+                </li>
+            </ul>
+        </div>

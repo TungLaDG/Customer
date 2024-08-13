@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var categories = ViewData["Category"] as List<Category>;
+    var cars = ViewData["Car"] as List<Car>;
+}
+
+@section Slide {
+    <section id="slider">
+            <div class="aspect-ratio">
+                <img src="/image/slide-photo1.jpg">
+                <img src="/image/slide-photo.jpg">
+                <img src="/image/slide-photo2.jpg" alt="">
+                <img src="/image/slide-photo3.jpg" alt="">
+                <img src="/image/slide-photo4.jpg" alt="">
+            </div>
+            <div class="dot-container">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            
+        </section>
+}
+
+@model List<Customer.Models.Car>
+
+
+<section class="conten-product">
+        <div class="content-product-list">
+
+            <div class="product-1">
+                <h3 style="color: white;margin-top: 40px;text-align: center;">Trending</h3>
+            </div>
+            <div class="content-category">
+                <h2 style="color: rgb(0, 0, 0);text-align: center;border-bottom: 2px solid rgb(241, 93, 199);"><b>Category</b></h2>
+                <div class="car-brand-cate">
+                    @foreach(var item in categories){
+                    <div class="parentCate">
+                        <a href="/customer/category/@item.Id">
+                            <b>@item.Carbrand</b>
+                        </a>
+                    </div>
+
+                    }
+                    
+                
+                </div>
+                
+            </div>
+            <div class="product-show">
+                <div class="container">
+                    <div class="row">
+                         @foreach(var item in cars){
+                    <div class="col-4">
+                        <a href="">
+                        <div class="col1-item1">
+                            <img src="~/image/@item.Imageurl" alt="">
+                        </div>
+                        <div class="col1-item1-content">
+                            <p>@item.CarName</p>
+                        </div>
+                        </a>
+                    </div>
+                }
+                    </div>
+                </div>
+               
+                </div>
+            </div>
+        </section>
